@@ -14,7 +14,7 @@ type Config struct {
 	// IP 是否打印 IP，默认 true
 	IP bool
 
-	// Method 是否打印 HTTP Method，默认 true
+	// Code 是否打印 HTTP Code，默认 true
 	Code bool
 
 	// Cost 是否打印花费的时间，默认 true
