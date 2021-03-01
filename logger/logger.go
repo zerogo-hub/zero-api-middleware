@@ -1,3 +1,4 @@
+// Package logger 请求日志，输出`一次请求`的一些信息，即使发生异常(`panic`)，也能输出
 package logger
 
 import (
