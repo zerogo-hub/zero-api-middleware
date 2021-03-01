@@ -4,7 +4,7 @@ import (
 	"os"
 
 	zeroapi "github.com/zerogo-hub/zero-api"
-	zmlogger "github.com/zerogo-hub/zero-api-middleware/logger"
+	zamlogger "github.com/zerogo-hub/zero-api-middleware/logger"
 )
 
 func helloworldHandle(ctx zeroapi.Context) {
@@ -13,6 +13,7 @@ func helloworldHandle(ctx zeroapi.Context) {
 }
 
 func hellopanic(ctx zeroapi.Context) {
+	// 即使发生异常，也能正常打印请求日志
 	panic("hello panic")
 }
 
@@ -23,7 +24,7 @@ func main() {
 
 	a.Get("/panic", hellopanic)
 
-	a.Use(zmlogger.New())
+	a.Use(zamlogger.New())
 
 	// 监听信号，比如优雅关闭
 	a.Server().HTTPServer().ListenSignal()
