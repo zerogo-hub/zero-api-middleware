@@ -1,4 +1,5 @@
 // Package basic 简单认证，如果之前没有认证，会返回`401`，要求用户输入用户名和密码
+// 会在网络中明文传送账号和密码
 package basic
 
 import (
@@ -26,18 +27,18 @@ type Config struct {
 	// Basic ..
 	Basic string
 
-	// basicLen "Basic "的长度
-	basicLen int
+	// basiclen "Basic "的长度
+	basiclen int
 }
+
+// Handler 验证账号和密码是否正确
+type Handler func(account, password string) bool
 
 var defaultConfig = &Config{
 	Expires: time.Duration(1 * time.Hour),
 	Realm:   strconv.Quote("Authorization Required"),
 	Basic:   "Basic ",
 }
-
-// Handler 验证账号和密码是否正确
-type Handler func(account, password string) bool
 
 type user struct {
 	account string
@@ -81,7 +82,7 @@ func (c *Config) init(config *Config, accounts map[string]string) {
 		}
 	}
 
-	c.basicLen = len(c.Basic)
+	c.basiclen = len(c.Basic)
 
 	if len(accounts) > 0 {
 		c.users = make(map[string]*user, len(accounts))
@@ -100,11 +101,11 @@ func (c *Config) init(config *Config, accounts map[string]string) {
 }
 
 func (c *Config) verify(header string) bool {
-	if header == "" || len(header) < c.basicLen+1 {
+	if header == "" || len(header) < c.basiclen+1 {
 		return false
 	}
 
-	if header[:c.basicLen] != c.Basic {
+	if header[:c.basiclen] != c.Basic {
 		return false
 	}
 
@@ -128,7 +129,7 @@ func (c *Config) verify(header string) bool {
 
 		if c.Check != nil {
 			// 解码，取出 account 和 password
-			a, err := base64.StdEncoding.DecodeString(header[c.basicLen:])
+			a, err := base64.StdEncoding.DecodeString(header[c.basiclen:])
 			if err == nil {
 				b := string(a)
 				for i := 0; i < len(b); i++ {
@@ -153,5 +154,6 @@ func (c *Config) failed(ctx zeroapi.Context) {
 	askHeader := c.Basic + " realm=" + c.Realm
 	ctx.SetHeader("WWW-Authenticate", askHeader)
 	ctx.SetHTTPCode(http.StatusUnauthorized)
+
 	ctx.Stopped()
 }
