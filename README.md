@@ -8,13 +8,12 @@
 | cors        | 跨域控制           |
 | jwt         | jwt 验证           |
 | logger      | 请求日志           |
-| newrelic    | 监控(未实现)       |
+| newrelic    | 监控               |
 | oauth2      | 身份认证(未实现)   |
 | opentracing | 追踪(未实现)       |
 | pprof       | 性能分析(未实现)   |
 | promethues  | 监控(未实现)       |
 | ratelimit   | 限流(未实现)       |
-| recover     | 异常恢复(未实现)   |
 | secure      | 安全认证(未实现)   |
 | static      | 静态文件(未实现)   |
 | throttle    | 节流(未实现)       |
