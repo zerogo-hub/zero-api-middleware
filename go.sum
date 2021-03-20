@@ -88,8 +88,8 @@ github.com/tebeka/strftime v0.1.5 h1:1NQKN1NiQgkqd/2moD6ySP/5CoZQsKa1d3ZhJ44Jpmg
 github.com/tebeka/strftime v0.1.5/go.mod h1:29/OidkoWHdEKZqzyDLUyC+LmgDgdHo4WAFCDT7D/Ig=
 github.com/throttled/throttled/v2 v2.7.1 h1:FnBysDX4Sok55bvfDMI0l2Y71V1vM2wi7O79OW7fNtw=
 github.com/throttled/throttled/v2 v2.7.1/go.mod h1:fuOeyK9fmnA+LQnsBbfT/mmPHjmkdogRBQxaD8YsgZ8=
-github.com/zerogo-hub/zero-api v0.2.1 h1:Pz9J6ppI1JNHAOd9I2QQ+y8SJ9GXojSsBOtwjQR5m3A=
-github.com/zerogo-hub/zero-api v0.2.1/go.mod h1:8AQ+20iWhHGfjCn19jtITLiv+66t9jfgo6v8i5GHqpw=
+github.com/zerogo-hub/zero-api v0.3.1 h1:3mWgl3v4Uc73Uvo0FePy6T2hiIR6To60mnWChdu8B8E=
+github.com/zerogo-hub/zero-api v0.3.1/go.mod h1:8AQ+20iWhHGfjCn19jtITLiv+66t9jfgo6v8i5GHqpw=
 github.com/zerogo-hub/zero-helper v0.3.1 h1:bBeJM70pwEJdgwhOkCPDSiYPo/itLc6xRAI8vifYfAs=
 github.com/zerogo-hub/zero-helper v0.3.1/go.mod h1:DkAT+eq8hpltTbBR57N9a5m/gyCmk/zDlJGlHnH/AzE=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
