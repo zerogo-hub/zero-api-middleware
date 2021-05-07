@@ -1,6 +1,6 @@
 module github.com/zerogo-hub/zero-api-middleware
 
-go 1.15
+go 1.16
 
 require (
 	github.com/newrelic/go-agent/v3 v3.10.0
