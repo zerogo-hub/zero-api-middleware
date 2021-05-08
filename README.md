@@ -11,6 +11,4 @@
 | newrelic    | 监控               |
 | opentracing | 追踪(未实现)       |
 | promethues  | 监控(未实现)       |
-| static      | 静态文件(未实现)   |
 | throttle    | 限流               |
-| timeout     | 超时(未实现)       |
