@@ -10,5 +10,4 @@
 | logger      | 请求日志           |
 | newrelic    | 监控               |
 | opentracing | 追踪               |
-| promethues  | 监控(未实现)       |
 | throttle    | 限流               |
