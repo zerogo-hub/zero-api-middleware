@@ -5,6 +5,7 @@ import (
 
 	zeroapi "github.com/zerogo-hub/zero-api"
 	zamthrottle "github.com/zerogo-hub/zero-api-middleware/throttle"
+	app "github.com/zerogo-hub/zero-api/app"
 )
 
 func helloworldHandle(ctx zeroapi.Context) {
@@ -13,7 +14,7 @@ func helloworldHandle(ctx zeroapi.Context) {
 }
 
 func main() {
-	a := zeroapi.New()
+	a := app.New()
 
 	a.Use(zamthrottle.New(&zamthrottle.Config{
 		// 每分钟请求两次

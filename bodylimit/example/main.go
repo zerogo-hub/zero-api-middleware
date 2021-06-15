@@ -5,6 +5,7 @@ import (
 
 	zeroapi "github.com/zerogo-hub/zero-api"
 	zambodylimit "github.com/zerogo-hub/zero-api-middleware/bodylimit"
+	app "github.com/zerogo-hub/zero-api/app"
 )
 
 func helloworldHandle(ctx zeroapi.Context) {
@@ -13,7 +14,7 @@ func helloworldHandle(ctx zeroapi.Context) {
 }
 
 func main() {
-	a := zeroapi.New()
+	a := app.New()
 
 	// curl -X POST -d '{"id":123}' http://127.0.0.1:8877
 	// {"code":"413","message":"request entity too large"}

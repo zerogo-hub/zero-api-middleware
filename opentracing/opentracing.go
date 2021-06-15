@@ -3,10 +3,9 @@ package opentracing
 import (
 	"io"
 
-	zeroapi "github.com/zerogo-hub/zero-api"
-
 	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
+	zeroapi "github.com/zerogo-hub/zero-api"
 
 	jaeger "github.com/uber/jaeger-client-go"
 	jaegerConfig "github.com/uber/jaeger-client-go/config"

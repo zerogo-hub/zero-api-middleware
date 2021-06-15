@@ -5,6 +5,7 @@ import (
 
 	zeroapi "github.com/zerogo-hub/zero-api"
 	zamcors "github.com/zerogo-hub/zero-api-middleware/cors"
+	app "github.com/zerogo-hub/zero-api/app"
 )
 
 func helloworldHandle(ctx zeroapi.Context) {
@@ -13,7 +14,7 @@ func helloworldHandle(ctx zeroapi.Context) {
 }
 
 func main() {
-	a := zeroapi.New()
+	a := app.New()
 
 	a.Get("/", helloworldHandle)
 

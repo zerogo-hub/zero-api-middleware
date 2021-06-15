@@ -6,6 +6,8 @@ import (
 	"os"
 
 	zeroapi "github.com/zerogo-hub/zero-api"
+	app "github.com/zerogo-hub/zero-api/app"
+
 	zamopentracing "github.com/zerogo-hub/zero-api-middleware/opentracing"
 )
 
@@ -15,7 +17,7 @@ func helloworldHandle(ctx zeroapi.Context) {
 }
 
 func main() {
-	a := zeroapi.New()
+	a := app.New()
 
 	a.Use(zamopentracing.New("test-1", "0.0.0.0:5778", a))
 

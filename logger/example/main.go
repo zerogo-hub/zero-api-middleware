@@ -5,6 +5,7 @@ import (
 
 	zeroapi "github.com/zerogo-hub/zero-api"
 	zamlogger "github.com/zerogo-hub/zero-api-middleware/logger"
+	app "github.com/zerogo-hub/zero-api/app"
 )
 
 func helloworldHandle(ctx zeroapi.Context) {
@@ -18,7 +19,7 @@ func hellopanic(ctx zeroapi.Context) {
 }
 
 func main() {
-	a := zeroapi.New()
+	a := app.New()
 
 	a.Get("/", helloworldHandle)
 

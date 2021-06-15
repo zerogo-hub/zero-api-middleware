@@ -5,6 +5,7 @@ import (
 
 	zeroapi "github.com/zerogo-hub/zero-api"
 	zamnewrelic "github.com/zerogo-hub/zero-api-middleware/newrelic"
+	app "github.com/zerogo-hub/zero-api/app"
 	zerotime "github.com/zerogo-hub/zero-helper/time"
 )
 
@@ -19,7 +20,7 @@ func sleepHandle(ctx zeroapi.Context) {
 }
 
 func main() {
-	a := zeroapi.New()
+	a := app.New()
 
 	a.Get("/", helloworldHandle)
 	a.Get("/sleep", sleepHandle)

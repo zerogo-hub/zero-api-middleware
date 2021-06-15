@@ -3,6 +3,7 @@ package main
 import (
 	zeroapi "github.com/zerogo-hub/zero-api"
 	zamjwt "github.com/zerogo-hub/zero-api-middleware/jwt"
+	app "github.com/zerogo-hub/zero-api/app"
 	zerojwt "github.com/zerogo-hub/zero-helper/jwt"
 )
 
@@ -39,7 +40,7 @@ func checktoken(ctx zeroapi.Context) {
 }
 
 func main() {
-	a := zeroapi.New()
+	a := app.New()
 
 	// 创建 jwt token
 	a.Get("/", createtoken)
