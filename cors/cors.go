@@ -124,7 +124,8 @@ func (c *Config) checkPreflight(ctx zeroapi.Context) bool {
 		return false
 	}
 
-	if !c.checkMethod(ctx) {
+	method := ctx.Header("Access-Control-Request-Method")
+	if !c.checkMethod(method) {
 		return false
 	}
 
@@ -174,11 +175,8 @@ func (c *Config) checkRequest(ctx zeroapi.Context) bool {
 		return false
 	}
 
-	if !c.checkMethod(ctx) {
-		return false
-	}
-
-	return true
+	method := ctx.Method()
+	return c.checkMethod(method)
 }
 
 func (c *Config) checkRequestSuccess(ctx zeroapi.Context) {
@@ -263,8 +261,7 @@ func (c *Config) checkOrigin(ctx zeroapi.Context) bool {
 }
 
 // checkMethod 检查 Method
-func (c *Config) checkMethod(ctx zeroapi.Context) bool {
-	method := ctx.Header("Access-Control-Request-Method")
+func (c *Config) checkMethod(method string) bool {
 	if len(method) == 0 {
 		return false
 	}

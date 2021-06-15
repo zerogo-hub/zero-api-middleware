@@ -18,9 +18,12 @@ func main() {
 
 	a.Get("/", helloworldHandle)
 
-	a.Use(zamcors.New(&zamcors.Config{
-		AccessControlAllowOrigin: []string{"*.abc.com", "abc.com"},
-	}))
+	// a.Use(zamcors.New(&zamcors.Config{
+	// 	AccessControlAllowOrigin: []string{"*.abc.com", "abc.com"},
+	// }))
+
+	// 跨域
+	a.Use(zamcors.New(nil))
 
 	// 监听信号，比如优雅关闭
 	a.Server().HTTPServer().ListenSignal()
