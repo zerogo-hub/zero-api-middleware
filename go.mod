@@ -14,5 +14,6 @@ require (
 	github.com/zerogo-hub/zero-helper v0.5.2
 	go.uber.org/atomic v1.8.0 // indirect
 	golang.org/x/sys v0.0.0-20210615035016-665e8c7367d1 // indirect
+	golang.org/x/time v0.0.0-20210723032227-1f47c861a9ac
 	google.golang.org/genproto v0.0.0-20210614182748-5b3b54cad159 // indirect
 )
