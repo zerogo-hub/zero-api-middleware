@@ -22,7 +22,7 @@ func New(opts ...Option) zeroapi.Handler {
 			return
 		}
 
-		for _, field := range opt.fields {
+		for _, field := range opt.Fields {
 			param, ok := params[field.Name]
 
 			if !ok || len(param) == 0 {

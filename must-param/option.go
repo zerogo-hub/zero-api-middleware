@@ -2,7 +2,8 @@ package mustparam
 
 // Option ..
 type Option struct {
-	fields []Field
+	// Fields 必要参数列表
+	Fields []Field
 }
 
 // Field ..
@@ -16,7 +17,7 @@ type Field struct {
 func defaultOption() Option {
 	// 默认需要 id, timestamp, nonce, sign 四个字段
 	return Option{
-		fields: []Field{
+		Fields: []Field{
 			// 时间戳，秒
 			{Name: "timestamp", Size: 10},
 			// 随机字符串，32 位
