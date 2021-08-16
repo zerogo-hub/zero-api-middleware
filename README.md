@@ -12,5 +12,6 @@
 | newrelic    | 监控                               |
 | nonce       | 随机参数 nonce 重复检查            |
 | opentracing | 追踪                               |
+| sign        | 签名验证                           |
 | throttle    | 限流                               |
 | timestamp   | 时间戳检查，与当前时间不得相差太多 |
