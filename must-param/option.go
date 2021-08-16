@@ -8,9 +8,9 @@ type Option struct {
 // Field ..
 type Field struct {
 	// name 参数名称，如 id
-	name string
+	Name string
 	// 参数长度
-	size int
+	Size int
 }
 
 func defaultOption() Option {
@@ -18,11 +18,11 @@ func defaultOption() Option {
 	return Option{
 		fields: []Field{
 			// 时间戳，秒
-			{name: "timestamp", size: 10},
+			{Name: "timestamp", Size: 10},
 			// 随机字符串，32 位
-			{name: "nonce", size: 32},
+			{Name: "nonce", Size: 32},
 			// 签名，默认使用 github.com/zerogo-hub/zero-api-middleware/sign 签名方式
-			{name: "sign", size: 64},
+			{Name: "sign", Size: 64},
 		},
 	}
 }
