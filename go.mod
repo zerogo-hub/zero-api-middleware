@@ -7,14 +7,12 @@ require (
 	github.com/gomodule/redigo v2.0.0+incompatible // indirect
 	github.com/newrelic/go-agent/v3 v3.13.0
 	github.com/opentracing/opentracing-go v1.2.0
-	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/throttled/throttled/v2 v2.8.0
 	github.com/uber/jaeger-client-go v2.29.1+incompatible
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
 	github.com/zerogo-hub/zero-api v0.4.2
-	github.com/zerogo-hub/zero-helper v0.3.1
+	github.com/zerogo-hub/zero-helper v0.5.2
 	go.uber.org/atomic v1.8.0 // indirect
-	golang.org/x/net v0.0.0-20210614182718-04defd469f4e // indirect
 	golang.org/x/sys v0.0.0-20210615035016-665e8c7367d1 // indirect
 	google.golang.org/genproto v0.0.0-20210614182748-5b3b54cad159 // indirect
 )
