@@ -21,8 +21,8 @@ func defaultOption() Option {
 			{name: "timestamp", size: 10},
 			// 随机字符串，32 位
 			{name: "nonce", size: 32},
-			// 签名
-			{name: "sign", size: 32},
+			// 签名，默认使用 github.com/zerogo-hub/zero-api-middleware/sign 签名方式
+			{name: "sign", size: 64},
 		},
 	}
 }
