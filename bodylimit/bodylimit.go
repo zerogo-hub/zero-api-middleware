@@ -24,14 +24,18 @@ func New(method string, limit int64) zeroapi.Handler {
 		l := ctx.Request().ContentLength
 		if l == -1 || (l == 0 && ctx.Request().Body != nil) {
 			ctx.SetHTTPCode(http.StatusBadRequest)
-			ctx.Message(http.StatusBadRequest, "bad request")
+			if _, err := ctx.Message(http.StatusBadRequest, "bad request"); err != nil {
+				ctx.App().Logger().Errorf("set message failed, err: %s", err.Error())
+			}
 			ctx.App().Logger().Warnf("bad request, ctx.Request().ContentLength: %d, method: %s", l, method)
 			ctx.Stopped()
 			return
 		}
 		if l > limit {
 			ctx.SetHTTPCode(http.StatusRequestEntityTooLarge)
-			ctx.Message(http.StatusRequestEntityTooLarge, "request entity too large")
+			if _, err := ctx.Message(http.StatusRequestEntityTooLarge, "request entity too large"); err != nil {
+				ctx.App().Logger().Errorf("set message failed, err: %s", err.Error())
+			}
 			ctx.App().Logger().Warnf("request entity too large, limit: %d, ctx.Request().ContentLength: %d", limit, l)
 			ctx.Stopped()
 			return

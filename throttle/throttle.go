@@ -99,14 +99,18 @@ func New(c *Config) zeroapi.Handler {
 // DefaultLimitHandler 默认的发生限制时调用
 func DefaultLimitHandler(ctx zeroapi.Context) {
 	ctx.SetHTTPCode(http.StatusTooManyRequests)
-	ctx.Message(http.StatusTooManyRequests, "too many requests")
+	if _, err := ctx.Message(http.StatusTooManyRequests, "too many requests"); err != nil {
+		ctx.App().Logger().Errorf("set message failed, err: %s", err.Error())
+	}
 	ctx.Stopped()
 }
 
 // DefaultErrHandler 默认的发生错误时调用
 func DefaultErrHandler(ctx zeroapi.Context, err error) {
 	ctx.SetHTTPCode(http.StatusInternalServerError)
-	ctx.Message(http.StatusInternalServerError, "internal server error")
+	if _, err := ctx.Message(http.StatusInternalServerError, "internal server error"); err != nil {
+		ctx.App().Logger().Errorf("set message failed, err: %s", err.Error())
+	}
 	ctx.Stopped()
 }
 

@@ -30,6 +30,8 @@ func New(cache zerocache.Cache, opts ...Option) zeroapi.Handler {
 			return
 		}
 
-		cache.SetEx(key, "1", opt.Expire)
+		if err := cache.SetEx(key, "1", opt.Expire); err != nil {
+			ctx.App().Logger().Errorf("cache nonce failed, err: %s", err.Error())
+		}
 	}
 }

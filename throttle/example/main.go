@@ -29,7 +29,9 @@ func main() {
 	// 监听信号，比如优雅关闭
 	a.Server().HTTPServer().ListenSignal()
 
-	a.Run("127.0.0.1:8877")
+	if err := a.Run("127.0.0.1:8877"); err != nil {
+		a.Logger().Errorf("app run failed, err: %s", err.Error())
+	}
 }
 
 // curl -i -X GET http://127.0.0.1:8877

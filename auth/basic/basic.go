@@ -134,11 +134,7 @@ func (c *Config) verify(header string) bool {
 				b := string(a)
 				for i := 0; i < len(b); i++ {
 					if b[i] == ':' {
-						if c.Check(b[:i], b[i+1:]) {
-							// 验证通过
-							return true
-						}
-						return false
+						return c.Check(b[:i], b[i+1:])
 					}
 				}
 			}

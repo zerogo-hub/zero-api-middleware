@@ -11,7 +11,7 @@ require (
 	github.com/uber/jaeger-client-go v2.29.1+incompatible
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
 	github.com/zerogo-hub/zero-api v0.4.2
-	github.com/zerogo-hub/zero-helper v0.5.2
+	github.com/zerogo-hub/zero-helper v0.8.2
 	go.uber.org/atomic v1.8.0 // indirect
 	golang.org/x/sys v0.0.0-20210615035016-665e8c7367d1 // indirect
 	golang.org/x/time v0.0.0-20210723032227-1f47c861a9ac

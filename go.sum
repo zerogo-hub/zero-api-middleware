@@ -124,8 +124,8 @@ github.com/yuin/goldmark v1.3.5/go.mod h1:mwnBkeHKe2W/ZEtQ+71ViKU8L12m81fl3OWwC1
 github.com/zerogo-hub/zero-api v0.4.2 h1:tiTneMCU1X0HNRtBfmTw4z120Vf+FmvJM7xMr5fmVoI=
 github.com/zerogo-hub/zero-api v0.4.2/go.mod h1:G+OXqzLRU1S/ZYAwbFAeVO6sqALTf4GxwrHk/EB+/Mk=
 github.com/zerogo-hub/zero-helper v0.3.1/go.mod h1:DkAT+eq8hpltTbBR57N9a5m/gyCmk/zDlJGlHnH/AzE=
-github.com/zerogo-hub/zero-helper v0.5.2 h1:oVn7qwKDTTm+7vu1xiTbTEPUQBWL8yn7AatBNA84ooY=
-github.com/zerogo-hub/zero-helper v0.5.2/go.mod h1:EqP59O1yLSroDha8aThyx0Cir7EAptCktlOsiSsUfwI=
+github.com/zerogo-hub/zero-helper v0.8.2 h1:4hEWnizC62OGpCSsv5FV9MdX16wO6tnWT1FDnCNE0Lc=
+github.com/zerogo-hub/zero-helper v0.8.2/go.mod h1:EqP59O1yLSroDha8aThyx0Cir7EAptCktlOsiSsUfwI=
 go.uber.org/atomic v1.8.0 h1:CUhrE4N1rqSE6FM9ecihEjRkLQu8cDfgDyoOs83mEY4=
 go.uber.org/atomic v1.8.0/go.mod h1:fEN4uk6kAWBTFdckzkM89CLk9XfWZrxpCo0nPH17wJc=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
