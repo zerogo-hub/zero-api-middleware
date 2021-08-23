@@ -42,6 +42,7 @@ func New(jwt zerojwt.JWT, onToken TokenHandler, onFailed FailedHandler) zeroapi.
 		}
 
 		if len(tokenValue) == 0 {
+			onFailed(ctx, errors.New("token is empty"))
 			return
 		}
 
