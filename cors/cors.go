@@ -314,5 +314,5 @@ func (c *Config) checkHeader(ctx zeroapi.Context) bool {
 		}
 	}
 
-	return false
+	return true
 }
