@@ -81,8 +81,14 @@ var defaultConfig = &Config{
 		http.MethodPatch,
 		http.MethodDelete,
 	},
-	AccessControlAllowHeaders: []string{},
-	AccessControlMaxAge:       "600",
+	AccessControlAllowHeaders: []string{
+		"Origin",
+		"Accept",
+		"Accept-Language",
+		"Content-Language",
+		"Content-Type",
+	},
+	AccessControlMaxAge: "600",
 }
 
 // New 跨域控制
