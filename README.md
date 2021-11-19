@@ -6,6 +6,7 @@
 | bodylimit   | 限制请求体大小                       |
 | casbin      | 访问控制(未实现)                     |
 | cors        | 跨域控制                             |
+| csrf        | 跨站请求伪造防御                     |
 | jwt         | jwt 验证                             |
 | limiter     | 限流，全局                           |
 | logger      | 请求日志                             |
