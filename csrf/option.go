@@ -71,6 +71,7 @@ func (opt *Option) replace(option Option) {
 	if option.IgnoreFunc != nil {
 		opt.IgnoreFunc = option.IgnoreFunc
 	}
+	opt.CookieHTTPOnly = option.CookieHTTPOnly
 	if option.Methods != nil {
 		opt.Methods = option.Methods
 	}
