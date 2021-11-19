@@ -16,9 +16,10 @@ func helloworldHandle(ctx zeroapi.Context) {
 func main() {
 	a := app.New()
 
-	a.Get("/", helloworldHandle)
-
 	a.Use(zammustparam.New())
+
+	a.Get("/", helloworldHandle)
+	a.Post("/", helloworldHandle)
 
 	// 监听信号，比如优雅关闭
 	a.Server().HTTPServer().ListenSignal()
@@ -32,3 +33,5 @@ func main() {
 // 正确的命令: curl -i -X GET http://127.0.0.1:8877?timestamp=1629014688&nonce=c49acbad9673f6eac0a28dcfb90277de&sign=0d7c57a64cf83b086ec8b02e1ceb0fcd
 //
 // 错误的命令: curl -i -X GET http://127.0.0.1:8877?timestamp=1629014688&sign=0d7c57a64cf83b086ec8b02e1ceb0fcd
+//
+// POST 测试: curl -X POST -d 'timestamp=1629014688&nonce=c49acbad9673f6eac0a28dcfb90277de&sign=0d7c57a64cf83b086ec8b02e1ceb0fcd' http://127.0.0.1:8877

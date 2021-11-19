@@ -130,12 +130,11 @@ github.com/uber/jaeger-lib v2.4.1+incompatible h1:td4jdvLcExb4cBISKIpHuGoVXh+dVK
 github.com/uber/jaeger-lib v2.4.1+incompatible/go.mod h1:ComeNDZlWwrWnDv8aPp0Ba6+uUTzImX/AauajbLI56U=
 github.com/yuin/goldmark v1.3.5/go.mod h1:mwnBkeHKe2W/ZEtQ+71ViKU8L12m81fl3OWwC1Zlc8k=
 github.com/zerogo-hub/zero-api v0.4.2/go.mod h1:G+OXqzLRU1S/ZYAwbFAeVO6sqALTf4GxwrHk/EB+/Mk=
-github.com/zerogo-hub/zero-api v0.12.4 h1:+iKGlgX3A7eRSFDlpAmYaMzs1LjOgbQa+QKAr4pq2Rw=
-github.com/zerogo-hub/zero-api v0.12.4/go.mod h1:4qa8YptQvgxNownC4eRnzSrVy7XVNZYLEFNwr8YG5R8=
+github.com/zerogo-hub/zero-api v0.14.5 h1:zWLAE2BodCa0ODUt7ARBDNkTvUtOktFhqY9rm+Sm83Y=
+github.com/zerogo-hub/zero-api v0.14.5/go.mod h1:sL0mVWcy5zVpO3Vrri1DvGSf9frypywQxGpdlsAw9QM=
 github.com/zerogo-hub/zero-api-middleware v0.5.4/go.mod h1:WLqnApXddv6t3oBzABkrGYWjqliu37czrQy4GvcvL94=
 github.com/zerogo-hub/zero-helper v0.3.1/go.mod h1:DkAT+eq8hpltTbBR57N9a5m/gyCmk/zDlJGlHnH/AzE=
 github.com/zerogo-hub/zero-helper v0.8.2/go.mod h1:EqP59O1yLSroDha8aThyx0Cir7EAptCktlOsiSsUfwI=
-github.com/zerogo-hub/zero-helper v0.17.6/go.mod h1:iytnQ8MNNpmvLGllq6vBmaRr4vdAD3I92pQZ+FTeyR8=
 github.com/zerogo-hub/zero-helper v0.19.6 h1:q7SbLpUAQGXRzp92V/aAstob+zvt2B1rSIRdSG8dggU=
 github.com/zerogo-hub/zero-helper v0.19.6/go.mod h1:iytnQ8MNNpmvLGllq6vBmaRr4vdAD3I92pQZ+FTeyR8=
 go.uber.org/atomic v1.8.0 h1:CUhrE4N1rqSE6FM9ecihEjRkLQu8cDfgDyoOs83mEY4=

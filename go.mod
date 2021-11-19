@@ -7,7 +7,7 @@ require (
 	github.com/opentracing/opentracing-go v1.2.0
 	github.com/throttled/throttled/v2 v2.9.0
 	github.com/uber/jaeger-client-go v2.29.1+incompatible
-	github.com/zerogo-hub/zero-api v0.12.4
+	github.com/zerogo-hub/zero-api v0.14.5
 	github.com/zerogo-hub/zero-helper v0.19.6
 	golang.org/x/time v0.0.0-20210723032227-1f47c861a9ac
 )
