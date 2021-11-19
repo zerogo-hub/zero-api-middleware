@@ -46,13 +46,15 @@ func Verify(opts ...Option) zeroapi.Handler {
 	}
 
 	return func(ctx zeroapi.Context) {
-		switch ctx.Method() {
-		case http.MethodGet, http.MethodHead, http.MethodOptions, http.MethodTrace:
-		default:
-			if !opt.verify(ctx) {
-				ctx.Stopped()
-				ctx.SetHTTPCode(http.StatusBadRequest)
-				ctx.App().Logger().Errorf("invalid csrf token, method: %s, path: %s", ctx.Method(), ctx.Path())
+		method := ctx.Method()
+		for _, requiredMethod := range opt.Methods {
+			if method == requiredMethod {
+				if !opt.verify(ctx) {
+					ctx.Stopped()
+					ctx.SetHTTPCode(http.StatusBadRequest)
+					ctx.App().Logger().Errorf("invalid csrf token, method: %s, path: %s", ctx.Method(), ctx.Path())
+				}
+				break
 			}
 		}
 	}

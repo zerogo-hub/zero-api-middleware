@@ -1,6 +1,8 @@
 package csrf
 
 import (
+	"net/http"
+
 	zeroapi "github.com/zerogo-hub/zero-api"
 )
 
@@ -27,6 +29,9 @@ type Option struct {
 	// CookieHTTPOnly
 	CookieHTTPOnly bool
 
+	// Methods 这些方法参与验证
+	Methods []string
+
 	// IgnoreFunc 忽略检测，返回 true 表示不检测
 	IgnoreFunc func(ctx zeroapi.Context) bool
 }
@@ -40,6 +45,7 @@ func defaultOption() *Option {
 		QueryName:      "_csrf",
 		CookieMaxAge:   24 * 3600,
 		CookieHTTPOnly: true,
+		Methods:        []string{http.MethodPost, http.MethodPut, http.MethodDelete},
 	}
 }
 
@@ -64,5 +70,8 @@ func (opt *Option) replace(option Option) {
 	}
 	if option.IgnoreFunc != nil {
 		opt.IgnoreFunc = option.IgnoreFunc
+	}
+	if option.Methods != nil {
+		opt.Methods = option.Methods
 	}
 }
