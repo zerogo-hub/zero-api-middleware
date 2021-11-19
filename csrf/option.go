@@ -40,7 +40,7 @@ func defaultOption() *Option {
 	return &Option{
 		Key:            "csrf key",
 		CookieName:     "csrfToken",
-		HeaderName:     "x-csrf-token",
+		HeaderName:     "X-Csrf-Token",
 		BodyName:       "_csrf",
 		QueryName:      "_csrf",
 		CookieMaxAge:   24 * 3600,
