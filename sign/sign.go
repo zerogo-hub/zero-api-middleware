@@ -62,16 +62,8 @@ func checkSign(signName string, secretKey string, values map[string][]string) er
 
 // calcSign 计算签名
 func calcSign(secretKey, signName string, values map[string][]string) (string, error) {
-
-	v := map[string]string{}
-	for name, value := range values {
-		if len(value) > 0 {
-			v[name] = value[0]
-		}
-	}
-
 	// 所有参数按照字母顺序从小到大排列
-	// 所有参数形成如 key1=value1&key2=value2 的形式
+	// 所有参数形成如 key1=value1key2=value2 的形式
 	size := len(values)
 	keys := make([]string, 0, size)
 	for key := range values {
@@ -88,23 +80,20 @@ func calcSign(secretKey, signName string, values map[string][]string) (string, e
 	b.Reset()
 
 	size = len(keys)
-	for index, key := range keys {
+	for _, key := range keys {
 		if key == "" {
 			continue
 		}
-		value := v[key]
+		vvs := values[key]
 
-		b.WriteString(key)
-		b.WriteString("=")
-		b.WriteString(value)
-
-		if index != size-1 {
-			b.WriteString("&")
+		for _, vv := range vvs {
+			b.WriteString(key)
+			b.WriteString("=")
+			b.WriteString(vv)
 		}
 	}
 
 	signStr := b.String()
-
 	return calcWithHmacSha256(secretKey, signStr), nil
 }
 
