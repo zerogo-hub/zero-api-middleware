@@ -59,6 +59,16 @@ func New(jwt zerojwt.JWT, onToken TokenHandler, onFailed FailedHandler) zeroapi.
 	}
 }
 
+// TokenFromCookie 从 Cookie 获取 jwt token 值
+func TokenFromCookie(ctx zeroapi.Context, tokenName string) (string, error) {
+	c, err := ctx.Cookie(tokenName)
+	if err != nil {
+		return "", err
+	}
+
+	return c, nil
+}
+
 // TokenFromHeader 从 Header 获取 jwt token 值
 func TokenFromHeader(ctx zeroapi.Context) (string, error) {
 	h := ctx.Header("Authorization")
