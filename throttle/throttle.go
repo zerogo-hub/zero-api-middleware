@@ -34,6 +34,7 @@ type Config struct {
 	VaryBy VaryBy
 }
 
+// New ..
 func New(c *Config) zeroapi.Handler {
 
 	if c == nil {
@@ -76,6 +77,10 @@ func New(c *Config) zeroapi.Handler {
 	}
 
 	return func(ctx zeroapi.Context) {
+		if ctx.Method() == http.MethodOptions {
+			return
+		}
+
 		var key string
 		if c.VaryBy != nil {
 			key = c.VaryBy.Key(ctx.Request())

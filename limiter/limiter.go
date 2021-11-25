@@ -19,6 +19,10 @@ func New(every time.Duration, burst int) zeroapi.Handler {
 	limiter = rate.NewLimiter(rate.Every(every), burst)
 
 	return func(ctx zeroapi.Context) {
+		if ctx.Method() == http.MethodOptions {
+			return
+		}
+
 		if !limiter.Allow() {
 			ctx.Stopped()
 			ctx.SetHTTPCode(http.StatusForbidden)

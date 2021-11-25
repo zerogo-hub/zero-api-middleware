@@ -16,6 +16,10 @@ func NewIP(every time.Duration, burst int) zeroapi.Handler {
 	i := newIPRateLimiter(rate.Every(every), burst)
 
 	return func(ctx zeroapi.Context) {
+		if ctx.Method() == http.MethodOptions {
+			return
+		}
+
 		ipStr := ctx.IP()
 		l := i.getLimiter(ipStr)
 
