@@ -84,12 +84,17 @@ func calcSign(secretKey, signName string, values map[string][]string) (string, e
 		if key == "" {
 			continue
 		}
-		vvs := values[key]
 
-		for _, vv := range vvs {
-			b.WriteString(key)
-			b.WriteString("=")
+		b.WriteString(key)
+		b.WriteByte('=')
+		vvs := values[key]
+		for idx, vv := range vvs {
+			// 相同的参数使用 , 连接
+			// 例如: a=1&a=2&a=3，会构造成字符串: a=1,2,3
 			b.WriteString(vv)
+			if idx != len(vvs)-1 {
+				b.WriteByte(',')
+			}
 		}
 	}
 
