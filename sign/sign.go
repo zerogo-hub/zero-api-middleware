@@ -79,7 +79,6 @@ func calcSign(secretKey, signName string, values map[string][]string) (string, e
 	defer releaseBuffer(b)
 	b.Reset()
 
-	size = len(keys)
 	for _, key := range keys {
 		if key == "" {
 			continue
