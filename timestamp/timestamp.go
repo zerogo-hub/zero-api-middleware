@@ -29,7 +29,7 @@ func New(opts ...Option) zeroapi.Handler {
 			if err != nil {
 				ctx.Stopped()
 				ctx.SetHTTPCode(http.StatusBadRequest)
-				ctx.App().Logger().Errorf("no valid timestamp: %d, method: %s, path: %s", timestamp, ctx.Method(), ctx.Path())
+				ctx.App().Logger().Errorf("no valid timestamp: %d, method: %s, path: %s, ip: %s", timestamp, ctx.Method(), ctx.Path(), ctx.IP())
 				return
 			}
 
@@ -38,7 +38,7 @@ func New(opts ...Option) zeroapi.Handler {
 			if timestamp > now+opt.Diff || timestamp < now-opt.Diff {
 				ctx.Stopped()
 				ctx.SetHTTPCode(http.StatusBadRequest)
-				ctx.App().Logger().Errorf("invalid timestamp: %d, method: %s, path: %s", timestamp, ctx.Method(), ctx.Path())
+				ctx.App().Logger().Errorf("invalid timestamp: %d, method: %s, path: %s, ip: %s", timestamp, ctx.Method(), ctx.Path(), ctx.IP())
 				return
 			}
 		}

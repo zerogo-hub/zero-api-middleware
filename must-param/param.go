@@ -18,7 +18,7 @@ func New(opts ...Option) zeroapi.Handler {
 		if params == nil {
 			ctx.Stopped()
 			ctx.SetHTTPCode(http.StatusBadRequest)
-			ctx.App().Logger().Errorf("params is null, method: %s, path: %s", ctx.Method(), ctx.Path())
+			ctx.App().Logger().Errorf("params is null, method: %s, path: %s, ip: %s", ctx.Method(), ctx.Path(), ctx.IP())
 			return
 		}
 
@@ -28,14 +28,14 @@ func New(opts ...Option) zeroapi.Handler {
 			if !ok || len(param) == 0 {
 				ctx.Stopped()
 				ctx.SetHTTPCode(http.StatusBadRequest)
-				ctx.App().Logger().Errorf("miss param: %s, method: %s, path: %s", field.Name, ctx.Method(), ctx.Path())
+				ctx.App().Logger().Errorf("miss param: %s, method: %s, path: %s, ip: %s", field.Name, ctx.Method(), ctx.Path(), ctx.IP())
 				return
 			}
 
 			if len(param[0]) != field.Size {
 				ctx.Stopped()
 				ctx.SetHTTPCode(http.StatusBadRequest)
-				ctx.App().Logger().Errorf("field size wrong, field.name: %s, required size: %d, current siz: %d, method: %s, path: %s", field.Name, field.Size, len(param[0]), ctx.Method(), ctx.Path())
+				ctx.App().Logger().Errorf("field size wrong, field.name: %s, required size: %d, current siz: %d, method: %s, path: %s, ip: %s", field.Name, field.Size, len(param[0]), ctx.Method(), ctx.Path(), ctx.IP())
 				return
 			}
 		}

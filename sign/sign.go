@@ -15,7 +15,6 @@ import (
 // 由插件 middleware/must_param 确保 sign 存在
 //
 // SecretKey 签名密钥
-//
 func New(secretKey string, opts ...Option) zeroapi.Handler {
 	opt := defaultOption()
 	if len(opts) > 0 {
@@ -27,7 +26,7 @@ func New(secretKey string, opts ...Option) zeroapi.Handler {
 			if err := checkSign(opt.SignName, secretKey, ctx.QueryAll()); err != nil {
 				ctx.Stopped()
 				ctx.SetHTTPCode(http.StatusBadRequest)
-				ctx.App().Logger().Errorf("check sign failed, method: %s, path: %s", ctx.Method(), ctx.Path())
+				ctx.App().Logger().Errorf("check sign failed, method: %s, path: %s, ip: %s", ctx.Method(), ctx.Path(), ctx.IP())
 			}
 		}
 	}

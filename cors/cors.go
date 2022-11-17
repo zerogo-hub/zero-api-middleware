@@ -172,7 +172,7 @@ func (c *Config) checkPreflightSuccess(ctx zeroapi.Context) {
 func (c *Config) checkPreflightFailed(ctx zeroapi.Context) {
 	ctx.Stopped()
 	ctx.SetHTTPCode(http.StatusForbidden)
-	ctx.App().Logger().Errorf("preflight failed, origin: %s, method: %s", ctx.Header("Origin"), ctx.Method())
+	ctx.App().Logger().Errorf("preflight failed, origin: %s, method: %s, ip: %s", ctx.Header("Origin"), ctx.Method(), ctx.IP())
 }
 
 func (c *Config) checkRequest(ctx zeroapi.Context) bool {
@@ -204,7 +204,7 @@ func (c *Config) checkRequestSuccess(ctx zeroapi.Context) {
 
 func (c *Config) checkRequestFailed(ctx zeroapi.Context) {
 	ctx.SetHTTPCode(http.StatusForbidden)
-	ctx.App().Logger().Errorf("request failed, origin: %s, method: %s", ctx.Header("Origin"), ctx.Method())
+	ctx.App().Logger().Errorf("request failed, origin: %s, method: %s, ip: %s", ctx.Header("Origin"), ctx.Method(), ctx.IP())
 	ctx.Stopped()
 }
 

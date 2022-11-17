@@ -26,7 +26,7 @@ func NewIP(every time.Duration, burst int) zeroapi.Handler {
 		if !l.Allow() {
 			ctx.Stopped()
 			ctx.SetHTTPCode(http.StatusForbidden)
-			ctx.App().Logger().Errorf("ip limiter: %s, method: %s, path: %s", ipStr, ctx.Method(), ctx.Path())
+			ctx.App().Logger().Errorf("ip limiter: %s, method: %s, path: %s, ip: %s", ipStr, ctx.Method(), ctx.Path(), ctx.IP())
 			return
 		}
 	}

@@ -27,7 +27,7 @@ func New(method string, limit int64) zeroapi.Handler {
 			if _, err := ctx.Message(http.StatusBadRequest, "bad request"); err != nil {
 				ctx.App().Logger().Errorf("set message failed, err: %s", err.Error())
 			}
-			ctx.App().Logger().Warnf("bad request, ctx.Request().ContentLength: %d, method: %s", l, method)
+			ctx.App().Logger().Warnf("bad request, ctx.Request().ContentLength: %d, method: %s, ip: %s", l, method, ctx.IP())
 			ctx.Stopped()
 			return
 		}
@@ -36,7 +36,7 @@ func New(method string, limit int64) zeroapi.Handler {
 			if _, err := ctx.Message(http.StatusRequestEntityTooLarge, "request entity too large"); err != nil {
 				ctx.App().Logger().Errorf("set message failed, err: %s", err.Error())
 			}
-			ctx.App().Logger().Warnf("request entity too large, limit: %d, ctx.Request().ContentLength: %d", limit, l)
+			ctx.App().Logger().Warnf("request entity too large, limit: %d, ctx.Request().ContentLength: %d, ip: %s", limit, l, ctx.IP())
 			ctx.Stopped()
 			return
 		}

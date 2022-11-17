@@ -30,7 +30,7 @@ func New(every time.Duration, burst int) zeroapi.Handler {
 		if !limiter.Allow() {
 			ctx.Stopped()
 			ctx.SetHTTPCode(http.StatusForbidden)
-			ctx.App().Logger().Errorf("global limiter, method: %s, path: %s", ctx.Method(), ctx.Path())
+			ctx.App().Logger().Errorf("global limiter, method: %s, path: %s, ip: %s", ctx.Method(), ctx.Path(), ctx.IP())
 			return
 		}
 	}

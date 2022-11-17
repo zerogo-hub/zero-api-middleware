@@ -26,7 +26,7 @@ func New(cache zerocache.Cache, opts ...Option) zeroapi.Handler {
 		if exist {
 			ctx.Stopped()
 			ctx.SetHTTPCode(http.StatusBadRequest)
-			ctx.App().Logger().Errorf("repeated nonce, method: %s, path: %s", ctx.Method(), ctx.Path())
+			ctx.App().Logger().Errorf("repeated nonce, method: %s, path: %s, ip: %s", ctx.Method(), ctx.Path(), ctx.IP())
 			return
 		}
 

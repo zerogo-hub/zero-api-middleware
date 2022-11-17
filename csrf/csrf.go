@@ -52,7 +52,7 @@ func Verify(opts ...Option) zeroapi.Handler {
 				if !opt.verify(ctx) {
 					ctx.Stopped()
 					ctx.SetHTTPCode(http.StatusBadRequest)
-					ctx.App().Logger().Errorf("invalid csrf token, method: %s, path: %s", ctx.Method(), ctx.Path())
+					ctx.App().Logger().Errorf("invalid csrf token, method: %s, path: %s, ip: %s", ctx.Method(), ctx.Path(), ctx.IP())
 				}
 				break
 			}
