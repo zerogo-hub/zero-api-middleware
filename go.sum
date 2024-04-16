@@ -92,8 +92,8 @@ github.com/uber/jaeger-client-go v2.30.0+incompatible/go.mod h1:WVhlPFC8FDjOFMMW
 github.com/uber/jaeger-lib v2.4.1+incompatible h1:td4jdvLcExb4cBISKIpHuGoVXh+dVKhn2Um6rjCsSsg=
 github.com/uber/jaeger-lib v2.4.1+incompatible/go.mod h1:ComeNDZlWwrWnDv8aPp0Ba6+uUTzImX/AauajbLI56U=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
-github.com/zerogo-hub/zero-api v0.15.7 h1:RlL1jlHE4yM8RMFK0U492vzhoey9sO89MfJL9Ddyi9k=
-github.com/zerogo-hub/zero-api v0.15.7/go.mod h1:jMXZrkxjFcYt2m5TdaxCSiVopCRlVCeaoK2zq1Wf8W8=
+github.com/zerogo-hub/zero-api v0.16.7 h1:xae+1eAsVSJtBrxaXAFUs1u+hlwOnX1hEOLMourRHVA=
+github.com/zerogo-hub/zero-api v0.16.7/go.mod h1:309W+xCXmEh7fjLuvDRQM5lSKtzllHdplWtbusuNFts=
 github.com/zerogo-hub/zero-helper v0.39.9 h1:Dz1MuBWvUnBeQCAC+dGMnN01iYg/yFibb8p9RbI1Q7M=
 github.com/zerogo-hub/zero-helper v0.39.9/go.mod h1:176ElRqTsjCw7yWD0VKWByaXvqnkLqoJxFC/Psutl3A=
 go.opentelemetry.io/otel v0.14.0/go.mod h1:vH5xEuwy7Rts0GNtsCW3HYQoZDY+OmBJ6t1bFGGlxgw=
