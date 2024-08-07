@@ -8,6 +8,7 @@ import (
 	"time"
 
 	zeroapi "github.com/zerogo-hub/zero-api"
+	zerobytes "github.com/zerogo-hub/zero-helper/bytes"
 )
 
 // Config 配置
@@ -31,6 +32,15 @@ var defaultConfig = &Config{
 	Cost: true,
 }
 
+var (
+	ipFlag     = []byte("ip: ")
+	sep        = []byte(", ")
+	methodFlag = []byte("method: ")
+	pathFlag   = []byte("path: ")
+	codeFlag   = []byte("code: ")
+	costFlag   = []byte("cost: ")
+)
+
 // New 记录每一条请求的信息
 func New(config ...*Config) zeroapi.Handler {
 	var c *Config
@@ -48,33 +58,33 @@ func New(config ...*Config) zeroapi.Handler {
 			defer releaseBuffer(buff)
 
 			if c.IP {
-				buff.WriteString("ip: ")
-				buff.WriteString(ctx.IP())
-				buff.WriteString(", ")
+				buff.Write(ipFlag)
+				buff.Write(zerobytes.StringToBytes(ctx.IP()))
+				buff.Write(sep)
 			}
 
-			buff.WriteString("method: ")
-			buff.WriteString(ctx.Method())
-			buff.WriteString(", ")
-			buff.WriteString("path: ")
-			buff.WriteString(ctx.Path())
-			buff.WriteString(", ")
+			buff.Write(methodFlag)
+			buff.Write(zerobytes.StringToBytes(ctx.Method()))
+			buff.Write(sep)
+			buff.Write(pathFlag)
+			buff.Write(zerobytes.StringToBytes(ctx.Path()))
+			buff.Write(sep)
 
 			if c.Code {
-				buff.WriteString("code: ")
-				buff.WriteString(strconv.Itoa(ctx.HTTPCode()))
-				buff.WriteString(", ")
+				buff.Write(codeFlag)
+				buff.Write(zerobytes.StringToBytes(strconv.Itoa(ctx.HTTPCode())))
+				buff.Write(sep)
 			}
 
 			if c.Cost {
 				cost := time.Since(start)
-				buff.WriteString("cost: ")
-				buff.WriteString(cost.String())
-				buff.WriteString(", ")
+				buff.Write(costFlag)
+				buff.Write(zerobytes.StringToBytes(cost.String()))
+				buff.Write(sep)
 			}
 
 			if c.Extend != nil {
-				buff.WriteString(c.Extend(ctx))
+				buff.Write(zerobytes.StringToBytes(c.Extend(ctx)))
 			}
 
 			ctx.App().Logger().Info(buff.String())
