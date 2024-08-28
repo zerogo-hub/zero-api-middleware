@@ -22,7 +22,7 @@ func main() {
 	a.Get("/", helloworldHandle)
 
 	// 10 秒内允许 2 个请求
-	a.Use(zamlimiter.New(zamtime.Second(10), 2))
+	a.Use(zamlimiter.New(zamtime.Second(10), 2, true))
 
 	// 监听信号，比如优雅关闭
 	a.Server().HTTPServer().ListenSignal()

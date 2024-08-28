@@ -14,7 +14,7 @@ var (
 )
 
 // New 全局限流器，每隔 every 时间放入一个令牌，满 burst 个令牌后不放入新令牌
-func New(every time.Duration, burst int) zeroapi.Handler {
+func New(every time.Duration, burst int, showCap bool) zeroapi.Handler {
 
 	// 每隔 every 时间放入 1 个，初始放入 burst 个
 	limiter = rate.NewLimiter(rate.Every(every), burst)
@@ -32,6 +32,8 @@ func New(every time.Duration, burst int) zeroapi.Handler {
 			ctx.SetHTTPCode(http.StatusForbidden)
 			ctx.App().Logger().Errorf("global limiter, method: %s, path: %s, ip: %s", ctx.Method(), ctx.Path(), ctx.IP())
 			return
+		} else if showCap {
+			ctx.App().Logger().Infof("global limiter, cap: %d", (int)(limiter.Tokens()))
 		}
 	}
 }

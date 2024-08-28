@@ -11,7 +11,7 @@ import (
 )
 
 // NewIP 针对 ip 的限流器，每隔 every 时间放入一个令牌，满 burst 个令牌后不放入新令牌
-func NewIP(every time.Duration, burst int) zeroapi.Handler {
+func NewIP(every time.Duration, burst int, showCap bool) zeroapi.Handler {
 
 	i := newIPRateLimiter(rate.Every(every), burst)
 
@@ -28,6 +28,8 @@ func NewIP(every time.Duration, burst int) zeroapi.Handler {
 			ctx.SetHTTPCode(http.StatusForbidden)
 			ctx.App().Logger().Errorf("ip limiter: %s, method: %s, path: %s, ip: %s", ipStr, ctx.Method(), ctx.Path(), ctx.IP())
 			return
+		} else if showCap {
+			ctx.App().Logger().Infof("global limiter, cap: %d", (int)(limiter.Tokens()))
 		}
 	}
 }
